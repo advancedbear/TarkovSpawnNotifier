@@ -3,7 +3,7 @@
 Notify when your matching completed.
 
 # How To Use (JP)
-1. [TarkovSpawnNotifier.zip]()をダウンロードし、展開します。
+1. [TarkovSpawnNotifier.zip](https://github.com/advancedbear/TarkovSpawnNotifier/archive/refs/heads/main.zip)をダウンロードし、展開します。
 2. `TarkovSpawnNotifier.ps1` をメモ帳などで開き、以下の行を編集します。
     ```PowerShell
     $eft = "D:\Battlestate Games\eft\Logs"
@@ -17,7 +17,7 @@ Notify when your matching completed.
     - カウントダウン開始時に、バルーン通知が表示されます。（PMC出撃時のみ）
 
 # How To Use (EN)
-1. Download [TarkovSpawnNotifier.zip]() and Extract it..
+1. Download [TarkovSpawnNotifier.zip](https://github.com/advancedbear/TarkovSpawnNotifier/archive/refs/heads/main.zip) and Extract it..
 2. Open `TarkovSpawnNotifier.ps1` with Notepad and Edit as below.
     ```PowerShell
     $eft = "D:\Battlestate Games\eft\Logs"
