@@ -29,3 +29,17 @@ Notify when your matching completed.
 4. When you can see `Activated`, it's Working!
     * When match making is finished, Baloon notification will be shown.
     * When starting countdown, Baloon notification will be shown. (ONLY PMC)
+
+# 注意 / Disclaimer
+- 本ツールは、EFTがデフォルトで出力している `trace.log` を読み取って出力しています。
+- This tool read EFT default log `trace.log` for monitoring match making.
+- ゲーム本体に対しては何も操作を行いませんが、本ツールを利用したことによるいかなる損害についても作者はその責を負いません。
+- This tool does NOT affect the game in any way, but the author is not responsible for ANY damage that may occur.
+- `start.bat`で開いたウィンドウ（Activateが書いてあるやつ）を閉じたら動きません（あたりまえ）
+- DON'T CLOSE THE WINDOW WHICH ONE OPENED BY `start.bat`!!!!
+
+# License
+MIT
+
+# Contact
+[@advanced_bear](https://twitter.com/advanced_bear) or [Issues](https://github.com/advancedbear/TarkovSpawnNotifier/issues)
