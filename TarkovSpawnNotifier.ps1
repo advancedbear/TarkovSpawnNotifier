@@ -39,6 +39,7 @@ Get-Content -Wait -Tail 10 -Path $target | ForEach-Object {
         $notify.showballoontip(10,'Tarkov Spawn Notifier','Game Starting!',[system.windows.forms.tooltipicon]::None)
     } elseif ($_ -like "*profileStatus*") {
         $_ -match "(Location: .*?)," > $null
-        Write-Host "$now`t$Matches[1]"
+        $Location = $Matches[1]
+        Write-Host "$now`t$Location"
     }
 }
