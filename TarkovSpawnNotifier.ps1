@@ -26,11 +26,10 @@ $notify.visible = $true
 ## Define Target Log File (Latest "trace.log")
 $latest = (Get-ChildItem $eft | Sort-Object LastWriteTime -Descending)[0].FullName
 $target = (Get-ChildItem $latest\*traces*.log | Sort-Object LastWriteTime -Descending)[0].FullName
-
 ## Reading Tail line for Monitoring
 Write-Host "----------- Activated -----------" -ForegroundColor White -BackgroundColor DarkCyan
 Get-Content -Wait -Tail 10 -Path $target | ForEach-Object {
-    $now = Get-Date -format "yyyy/MM/dd HH:mm"
+    $now = Get-Date -format "yyyy/MM/dd HH:mm:ss"
     If($_ -like "*MatchingCompleted*") {
         Write-Host "$now`tMatching Completed!"
         $notify.showballoontip(10,'Tarkov Spawn Notifier','Matching Completed!',[system.windows.forms.tooltipicon]::None)
@@ -41,5 +40,14 @@ Get-Content -Wait -Tail 10 -Path $target | ForEach-Object {
         $_ -match "(Location: .*?)," > $null
         $Location = $Matches[1]
         Write-Host "$now`t$Location"
+    } elseif ($_ -like "*ClientMetricsEvents*") {
+        Write-Host "$now`tStart Match Making!"
+    } elseif ($_ -like "*PlayerSpawnEvent*") {
+        $_ -match "PlayerSpawnEvent:(\d+)" > $null
+        $passedTime = [TimeSpan]::fromseconds($Matches[1])
+        Write-Host "$now`tPlayer was Spawned! ->"($passedTime).ToString("hh\:mm\:ss") -ForegroundColor Green
+    } elseif ($_ -like "*cancelled*") {
+        Write-Host "$now`tMatching Cancelled!" -ForegroundColor Yellow
+        $startTime = $null
     }
 }
